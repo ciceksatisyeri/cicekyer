@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="1234133.css">
+    <title>Çiçek Bahçesi</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
         header {
@@ -19,6 +27,26 @@
             color: white;
             text-align: center;
             padding: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 30px;
+        }
+
+        .menu-toggle div {
+            width: 30px;
+            height: 3px;
+            background-color: black;
         }
 
         nav {
@@ -49,51 +77,61 @@
         }
 
         nav ul li a {
-            color: black;
+            color: white;
             text-decoration: none;
         }
 
-        .menu-toggle {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            cursor: pointer;
+        .urunler {
             display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 30px;
-            height: 30px;
-        }
-
-        .menu-toggle div {
-            width: 30px;
-            height: 3px;
-            background-color: black;
-        }
-
-        .photo-gallery {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
             padding: 20px;
+            max-width: 1200px;
+            width: 100%;
         }
 
-        .photo-gallery img {
-            width: 300px;
-            margin: 10px 0;
+        .urun {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .urun img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
             cursor: pointer;
         }
 
+        .urun p {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                width: 100%;
+            }
+            .urun {
+                width: 150px;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-       <h1>Çiçek Bahçesi</h1>
+        <h1>Çiçek Bahçesi</h1>
         <p class="subtitle">
-    Size En Yakın 7/24 Çiçekçi<br>
-    30 ila 40 dakika arası kapınızda.<br>
-    Çiçekella, Size En Yakın tüm ilçelerine 7/24 çiçek hizmeti sağlar.
-</p>
+            Size En Yakın 7/24 Çiçekçi<br>
+            30 ila 40 dakika arası kapınızda.<br>
+            Çiçekella, Size En Yakın tüm ilçelerine 7/24 çiçek hizmeti sağlar.
+        </p>
     </header>
 
     <div class="menu-toggle" id="menu-toggle">
@@ -104,9 +142,8 @@
 
     <nav id="sidebar">
         <ul>
-                    <h2>Türkiye'nin 81 İlinde Teslimat</h2>
-            <ul class="provinces-list">
-                 <li><a href="#">Adana</a></li>
+            <h2>Türkiye'nin 81 İlinde Teslimat</h2>
+                   <li><a href="#">Adana</a></li>
                 <li><a href="#">Adıyaman</a></li>
                 <li><a href="#">Afyonkarahisar</a></li>
                 <li><a href="#">Ağrı</a></li>
@@ -179,11 +216,12 @@
                 <li><a href="#">Yalova</a></li>
                 <li><a href="#">Yozgat</a></li>
                 <li><a href="#">Zonguldak</a></li>
+            <!-- Add more cities -->
         </ul>
     </nav>
 
-   <main>
-        <div class="urunler">
+    <main>
+          <div class="urunler">
             <div class="urun">
          <div class="urunler">
     <div class="urun">
@@ -247,10 +285,8 @@
         <p>Ürün 10 - 300₺</p>
     </div>
 </div>
-
-            <!-- Daha fazla ürün buraya eklenebilir -->
-        </div>
     </main>
+
     <script>
         const menuToggle = document.getElementById('menu-toggle');
         const sidebar = document.getElementById('sidebar');
@@ -258,11 +294,6 @@
         menuToggle.addEventListener('click', () => {
             sidebar.classList.toggle('active');
         });
-
-        function sendToWhatsApp() {
-            const whatsappUrl = "https://wa.me/?text=Check%20out%20this%20flower!";
-            window.open(whatsappUrl, '_blank');
-        }
     </script>
 </body>
 </html>
